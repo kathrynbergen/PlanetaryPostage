@@ -1,7 +1,8 @@
-using UnityEngine;
+using UnityEngine; 
 
 public class DeleteMe : MonoBehaviour
 {
+    // hi initial committ
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
