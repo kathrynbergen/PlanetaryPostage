@@ -149,7 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeyboardInput
   Chuck: {fileID: 1692860056}
-  doublePressThreshold: 0.15
   canSuccessfullyUpPulse: 0
   canSuccessfullyDownPulse: 0
   upPulseTimer: 0
@@ -403,7 +402,6 @@ SpriteRenderer:
   m_Size: {x: 8.4, y: 7.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1692860058
