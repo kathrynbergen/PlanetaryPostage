@@ -26,8 +26,8 @@ public class ObstacleObject : MonoBehaviour
     }
     private void Move(Vector2 direction)
     {
-        float xAmount = direction.x * 5f * Time.deltaTime;
-        float yAmount = direction.y * 5f * Time.deltaTime;
+        float xAmount = direction.x * Mathf.Abs(ObstacleSpeed) * 5f * Time.deltaTime;
+        float yAmount = direction.y * Mathf.Abs(ObstacleSpeed) * 5f * Time.deltaTime;
         
         ObstacleSpriteRenderer.transform.Translate(xAmount, yAmount, 0f);
     }
