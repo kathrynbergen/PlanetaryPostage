@@ -4,7 +4,10 @@ public class KeyboardInput : MonoBehaviour
 {
     public Chuck Chuck;
     //CHANGE TO GAMEPARAMETERS.DOUBLEPRESSTIME
-    public float doublePressThreshold = 0.25f;
+    //Could be changed with an accessibility slider?
+    //doublePressThreshold (normal) = 0.15f
+    //doublePressThreshold (generous) = 0.25f
+    private float doublePressThreshold = 0.15f;
 
     private bool canSuccessfullyUpPulse;
     private bool canSuccessfullyDownPulse;
@@ -18,20 +21,25 @@ public class KeyboardInput : MonoBehaviour
         {
             if (!canSuccessfullyUpPulse)
             {
+                //start timer
                 canSuccessfullyUpPulse = true;
                 upPulseTimer = 0f;
             }
             else
             {
+                //if within threshold, pulse
                 Debug.Log("UP PULSE");
+                Chuck.Pulse();
                 canSuccessfullyUpPulse = false;
             }
         }
         if (canSuccessfullyUpPulse)
         {
+            //check if button press is still in threshold
             upPulseTimer += Time.deltaTime;
             if (upPulseTimer >= doublePressThreshold)
             {
+                //reset timer
                 canSuccessfullyUpPulse = false;
             }
         }
@@ -47,6 +55,7 @@ public class KeyboardInput : MonoBehaviour
             else
             {
                 Debug.Log("DOWN PULSE");
+                Chuck.Pulse();
                 canSuccessfullyDownPulse = false;
             }
         }
@@ -73,6 +82,12 @@ public class KeyboardInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Chuck.Parry();
+        }
+        
+        //boost
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Chuck.Boost();
         }
         
     }
