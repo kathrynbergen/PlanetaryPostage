@@ -104,6 +104,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AlienBasic
   ObstaclePrefab: {fileID: 93497228326777471}
-  ObstacleSpeed: -5
-  MinimumAlienBasicSpawnRate: 1
-  MaximumAlienBasicSpawnRate: 3
+  BulletPrefab: {fileID: 2526614731955205239, guid: c0f8d641c1981984f87d514dbcebd8e3, type: 3}
+  Bullet: {fileID: -7380665801481167634, guid: c0f8d641c1981984f87d514dbcebd8e3, type: 3}

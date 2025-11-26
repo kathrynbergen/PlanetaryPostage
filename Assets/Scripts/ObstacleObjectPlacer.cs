@@ -31,6 +31,6 @@ public class ObstacleObjectPlacer : MonoBehaviour
     public void Place()
     {
         float yLocation = Random.Range(-3.8f, 3.8f);
-        Instantiate(ObstaclePrefab, new Vector2(7,yLocation), Quaternion.identity);
+        Instantiate(ObstaclePrefab, new Vector2(10,yLocation), Quaternion.identity);
     }
 }
