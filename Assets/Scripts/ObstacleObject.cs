@@ -63,6 +63,7 @@ public class ObstacleObject : MonoBehaviour
     {
         yield return new WaitForSeconds(5f / Mathf.Abs(ObstacleSpeed));
         print("destroy!");
+        ObstacleObjectPlacer.RemoveFromListWhenDestroyed(transform.position.y);
         Destroy(ObstaclePrefab);
     }
     private void Move(Vector2 direction)

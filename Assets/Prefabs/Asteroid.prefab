@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 198528750308500809}
   - component: {fileID: 3754227088909311331}
-  - component: {fileID: 25151573544586006}
   - component: {fileID: 3200904366358383089}
+  - component: {fileID: 1225357841305816138}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Obstacle
@@ -92,8 +92,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &25151573544586006
-CircleCollider2D:
+--- !u!114 &3200904366358383089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4609301563515464140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4403e94926a4e44182e871fb6cff408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Asteroid
+  ObstaclePrefab: {fileID: 4609301563515464140}
+  BulletPrefab: {fileID: 2526614731955205239, guid: c0f8d641c1981984f87d514dbcebd8e3, type: 3}
+  Bullet: {fileID: -7380665801481167634, guid: c0f8d641c1981984f87d514dbcebd8e3, type: 3}
+--- !u!61 &1225357841305816138
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -122,24 +137,19 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.0059477687}
-  m_Radius: 0.49594778
---- !u!114 &3200904366358383089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4609301563515464140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4403e94926a4e44182e871fb6cff408, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Asteroid
-  ObstaclePrefab: {fileID: 4609301563515464140}
-  BulletPrefab: {fileID: 2526614731955205239, guid: c0f8d641c1981984f87d514dbcebd8e3, type: 3}
-  Bullet: {fileID: -7380665801481167634, guid: c0f8d641c1981984f87d514dbcebd8e3, type: 3}
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.96, y: 1.52}
+    newSize: {x: 0.98, y: 0.76}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.96, y: 1.52}
+  m_EdgeRadius: 0
