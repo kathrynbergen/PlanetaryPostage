@@ -13,9 +13,6 @@ public class ObstacleObjectPlacer : MonoBehaviour
     private float minimumY = -3.8f; 
     private float maximumY = 3.8f;
     
-    public float minSpacing = 5f;
-    public float retryOffset = 5f;
-    
     private bool isOkToCreate = true;
     private static List<float> occupiedY = new List<float>();
 
@@ -41,47 +38,30 @@ public class ObstacleObjectPlacer : MonoBehaviour
 
     IEnumerator TryToPlaceObstacle()
     {
-        float chosenY = Random.Range(minimumY, maximumY);
-        for (int attempt = 0; attempt < 20; attempt++)
+        for (int attempt = 0; attempt < 50; attempt++)
         {
-            if (IsValidY(chosenY))
+            float chosenY = Random.Range(minimumY, maximumY);
+
+            // Size of the obstacle (half-width, half-height)
+            Vector2 boxSize = new Vector2(0.75f, 0.75f); // adjust width if needed
+            Vector2 spawnPosition = new Vector2(10f, chosenY);
+
+            Collider2D hit = Physics2D.OverlapBox(spawnPosition, boxSize, 0f);
+
+            if (hit == null || hit.tag != "Obstacle") // no overlap with another obstacle
             {
                 PlaceObstacle(chosenY);
                 yield break;
             }
-
-            chosenY -= retryOffset;
-
-            if (chosenY < minimumY)
-                chosenY = maximumY;
         }
 
         print("All Y positions blocked — delaying placement");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.1f);
     }
-    private bool IsValidY(float newY)
-    {
-        foreach (float existingY in occupiedY)
-        {
-            if (Mathf.Abs(existingY - newY) < minSpacing)
-                return false;
-        }
-        return true;
-    }
+
     public void PlaceObstacle(float yLocation)
     {
         GameObject newObstacle = Instantiate(ObstaclePrefab, new Vector2(10,yLocation), Quaternion.identity);
         occupiedY.Add(yLocation);
-    }
-    public static void RemoveFromListWhenDestroyed(float yLocation)
-    {
-        for (int i = 0; i < occupiedY.Count; i++)
-        {
-            if (Mathf.Abs(occupiedY[i] - yLocation) < 0.001f)
-            {
-                occupiedY.RemoveAt(i);
-                return;
-            }
-        }
     }
 }

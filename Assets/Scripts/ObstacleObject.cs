@@ -61,10 +61,9 @@ public class ObstacleObject : MonoBehaviour
 
     IEnumerator CountdownUntilDestroyedOffScreen()
     {
-        yield return new WaitForSeconds(5f / Mathf.Abs(ObstacleSpeed));
+        yield return new WaitForSeconds(4f / Mathf.Abs(ObstacleSpeed));
         print("destroy!");
-        ObstacleObjectPlacer.RemoveFromListWhenDestroyed(transform.position.y);
-        Destroy(ObstaclePrefab);
+        Destroy(gameObject);
     }
     private void Move(Vector2 direction)
     {
@@ -75,6 +74,6 @@ public class ObstacleObject : MonoBehaviour
             xAmount *= -1f;
         float yAmount = direction.y * Mathf.Abs(ObstacleSpeed) * 5f * Time.deltaTime;
         
-        ObstacleSpriteRenderer.transform.Translate(xAmount, yAmount, 0f);
+        transform.Translate(new Vector3(xAmount, yAmount, 0f));
     }
 }

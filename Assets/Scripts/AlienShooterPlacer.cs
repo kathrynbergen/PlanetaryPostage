@@ -4,7 +4,7 @@ public class AlienShooterPlacer : ObstacleObjectPlacer
 {
     public void Start()
     {
-        minimumSecondsUntilSpawn = 3f; // temp - add to GameParameters class
-        maximumSecondsUntilSpawn = 8f; 
+        minimumSecondsUntilSpawn = 2f; // temp - add to GameParameters class
+        maximumSecondsUntilSpawn = 6f; 
     }
 }
