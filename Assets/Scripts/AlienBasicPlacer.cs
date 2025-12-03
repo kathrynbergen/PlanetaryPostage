@@ -4,7 +4,12 @@ public class AlienBasicPlacer : ObstacleObjectPlacer
 {
     public void Start()
     {
-        minimumSecondsUntilSpawn = 2f; // temp - add to GameParameters class
-        maximumSecondsUntilSpawn = 4f; 
+        minimumSecondsUntilSpawn = GameParameters.AlienBasicMinimumSecondsUntilSpawn;
+        maximumSecondsUntilSpawn = GameParameters.AlienBasicMaximumSecondsUntilSpawn;
+    }
+    public void UpdateSpawnRates()
+    {
+        minimumSecondsUntilSpawn = GameParameters.AlienBasicMinimumSecondsUntilSpawn;
+        maximumSecondsUntilSpawn = GameParameters.AlienBasicMaximumSecondsUntilSpawn;
     }
 }

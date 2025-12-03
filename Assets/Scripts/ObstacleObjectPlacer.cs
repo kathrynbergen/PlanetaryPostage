@@ -9,31 +9,37 @@ public class ObstacleObjectPlacer : MonoBehaviour
     public float minimumSecondsUntilSpawn = 1f;
     public float maximumSecondsUntilSpawn = 3f;
 
+    public bool IsOkToCreate = false;
+    
     // bottom and top of screen bounds
     private float minimumY = -3.8f; 
     private float maximumY = 3.8f;
     
-    private bool isOkToCreate = true;
+    
     private static List<float> occupiedY = new List<float>();
+    
+    private Coroutine spawnCoroutine;
 
     // Update is called once per frame
     void Update()
     {
-        if (isOkToCreate)
+        if (IsOkToCreate && spawnCoroutine == null)
         {
-            StartCoroutine(CountdownUntilCreation());
+            spawnCoroutine = StartCoroutine(CountdownUntilCreation());
         }
     }
+
     IEnumerator CountdownUntilCreation()
     {
-        isOkToCreate = false;
+        IsOkToCreate = false;
         
         float secondsToWait = Random.Range(minimumSecondsUntilSpawn, maximumSecondsUntilSpawn);
         yield return new WaitForSeconds(secondsToWait);
         
         yield return TryToPlaceObstacle();
         
-        isOkToCreate = true;
+        IsOkToCreate = true;
+        spawnCoroutine = null;
     }
 
     IEnumerator TryToPlaceObstacle()
@@ -41,9 +47,8 @@ public class ObstacleObjectPlacer : MonoBehaviour
         for (int attempt = 0; attempt < 50; attempt++)
         {
             float chosenY = Random.Range(minimumY, maximumY);
-
-            // Size of the obstacle (half-width, half-height)
-            Vector2 boxSize = new Vector2(0.75f, 0.75f); // adjust width if needed
+            
+            Vector2 boxSize = new Vector2(0.75f, 0.75f); // 1/2 size of obstacle width and height
             Vector2 spawnPosition = new Vector2(10f, chosenY);
 
             Collider2D hit = Physics2D.OverlapBox(spawnPosition, boxSize, 0f);

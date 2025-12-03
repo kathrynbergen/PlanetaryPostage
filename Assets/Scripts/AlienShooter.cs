@@ -4,7 +4,7 @@ public class AlienShooter : ObstacleObject
 {
     public void Start()
     {
-        ObstacleSpeed = -0.5f; // temp - change to GameParameters.AlienBasicSpeed once GameParameters class exists
+        ObstacleSpeed = GameParameters.AlienShooterSpeed;
         isShooter = true;
         base.Start(); 
     }
