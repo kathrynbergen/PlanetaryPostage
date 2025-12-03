@@ -57,6 +57,7 @@ public class Game : MonoBehaviour
         AsteroidPlacer.UpdateSpawnRates();
         AlienBasicPlacer.UpdateSpawnRates();
         AlienShooterPlacer.UpdateSpawnRates();
+        
     }
 
     private void AdjustDifficultyToLevelOne()
