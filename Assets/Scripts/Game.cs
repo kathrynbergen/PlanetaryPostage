@@ -61,8 +61,7 @@ public class Game : MonoBehaviour
 
     private void AdjustDifficultyToLevelOne()
     {
-        //UpdateGameParameters(2f,4f,2f,6f,3f,6f);
-        UpdateGameParameters(10f,20f,10f,20f,10f,20f);
+        UpdateGameParameters(2f, 4f, 2f, 6f, 3f, 6f);
     }
     private void AdjustDifficultyToLevelTwo()
     {
@@ -70,8 +69,7 @@ public class Game : MonoBehaviour
     }
     private void AdjustDifficultyToLevelThree()
     {
-        //UpdateGameParameters(0.5f,2.5f,1f,3f,1f,4f);
-        UpdateGameParameters(0f,1f,0f,1f,0f,1f);
+        UpdateGameParameters(0.5f,2.5f,1f,3f,1f,4f);
     }
 
     private void UpdateGameParameters(float asteroidMin, float asteroidMax, float alienBasicMin, float alienBasicMax, float alienShooterMin, float alienShooterMax)
